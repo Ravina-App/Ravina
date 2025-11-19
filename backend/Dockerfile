@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.6
 
-FROM php:8.2-cli AS build
+FROM php:8.3-cli AS build
 
 ENV APP_ENV=prod \
     APP_DEBUG=0
@@ -24,7 +24,7 @@ RUN composer install --no-dev --no-scripts --no-progress --no-interaction --pref
 COPY . .
 RUN composer install --no-dev --optimize-autoloader --no-progress --no-interaction --prefer-dist
 
-FROM php:8.2-apache AS runtime
+FROM php:8.3-apache AS runtime
 
 ENV APP_ENV=prod \
     APP_DEBUG=0 \
